@@ -1,0 +1,17 @@
+syntax = "proto3";
+package red.red;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "red/red/params.proto";
+
+option go_package = "red/x/red/types";
+
+// GenesisState defines the red module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
